@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    build: . #도커파일 빌드
+    build: . 
     container_name: fastapi-app
     volumes:
       - .:/code
