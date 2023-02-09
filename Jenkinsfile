@@ -27,12 +27,18 @@ pipeline {
             expression {
                params.executeTests
             }
-            
          }
          steps {
             script {
                gv.testApp()
             }
+         }
+      }
+      stage("Tag and Push") {
+         steps {
+                sh "docker tag jenkins-pipeline_web:latest $areum067/jenkins-app:$tkfkdgo67"
+                sh "docker login -u $areum067 -p $tkfkdgo67"
+                sh "docker push $areum067/jenkins-app:${BUILD_NUMBER}"
          }
       }
       stage("deploy") {
